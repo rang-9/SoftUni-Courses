@@ -1,0 +1,60 @@
+using System;
+
+namespace ConsoleApp56
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int voucher = int.Parse(Console.ReadLine());
+            int movieTicket = 0;
+            int others = 0;
+            int purchasedProducts = 0;
+            int purchasedTickets = 0;
+
+            while (voucher >= 0)
+            {
+                string purchase = Console.ReadLine();
+
+                if (purchase == "End")
+                {
+                    Console.WriteLine(purchasedTickets);
+                    Console.WriteLine(purchasedProducts);
+                    break;
+                }
+
+                if (purchase.Length > 8)
+                {
+                    movieTicket = purchase[0] + purchase[1];
+                    if (voucher < movieTicket)
+                    {
+                        Console.WriteLine($"{purchasedTickets}");
+                        Console.WriteLine($"{purchasedProducts}");
+                        break;
+                    }
+
+                    voucher -= movieTicket;
+                    purchasedTickets++;
+                }
+
+                else if (purchase.Length <= 8)
+                {
+                    others = purchase[0];
+                    if (voucher < others)
+                    {
+                        Console.WriteLine($"{purchasedTickets}");
+                        Console.WriteLine($"{purchasedProducts}");
+                        break;
+                    }
+                    voucher -= others;
+                    purchasedProducts++;
+                }
+                
+
+               
+               
+            }
+
+        }
+    }
+}
