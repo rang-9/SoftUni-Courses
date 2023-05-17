@@ -1,0 +1,96 @@
+using System;
+using System.Reflection;
+
+namespace ConsoleApp72
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int peopleCount = int.Parse(Console.ReadLine());
+            string type = Console.ReadLine();
+            string day = Console.ReadLine();
+
+            double price = 0;
+            double total = 0;
+
+            if (type == "Students")
+            {
+                if (day == "Friday")
+                {
+                    price = 8.45;
+                    total = price * peopleCount;
+                }
+                else if (day == "Saturday")
+                {
+                    price = 9.80;
+                    total = price * peopleCount;
+                }
+                else if (day == "Sunday")
+                {
+                    price = 10.46;
+                    total = price * peopleCount;
+                }
+            }
+            else if (type == "Business")
+            {
+                if (day == "Friday")
+                {
+                    price = 10.90;
+                    total = price * peopleCount;
+                }
+                else if (day == "Saturday")
+                {
+                    price = 15.60;
+                    total = price * peopleCount;
+                }
+                else if (day == "Sunday")
+                {
+                    price = 16;
+                    total = price * peopleCount;
+                }
+            }
+            else if (type == "Regular") 
+            {
+                if (day == "Friday")
+                {
+                    price = 15;
+                    total = price * peopleCount;
+                }
+                else if (day == "Saturday")
+                {
+                    price = 20;
+                    total = price * peopleCount;
+                }
+                else if (day == "Sunday")
+                {
+                    price = 22.50;
+                    total = price * peopleCount;
+                }
+            }
+            if (type == "Students")
+            {
+                if (peopleCount >= 30)
+                {
+                    total = total - (total * 0.15);
+                }
+            }
+            else if (type == "Business")
+            {
+                if (peopleCount >= 100)
+                {
+                    peopleCount = peopleCount - 10;
+                    total = price * peopleCount;
+                }
+            }
+            else if (type == "Regular") 
+            {
+                if (peopleCount > 9 && peopleCount < 21) 
+                {
+                    total = total - (total * 0.05);
+                }
+            }
+            Console.WriteLine($"Total price: {total:f2}");
+        }
+    }
+}
