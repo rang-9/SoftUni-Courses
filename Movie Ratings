@@ -1,0 +1,45 @@
+using System;
+
+namespace ConsoleApp1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+           int movies = int.Parse(Console.ReadLine());
+            double averageRating = 0;
+            double maxRating = 0;
+            double minRating = 11;
+            double sumRating = 0;
+            string highestRatingForFilm = "";
+            string lowestRatingForFilm = "";
+
+
+            for (int i = 1; i <= movies; i++)
+            {
+                string movieName = Console.ReadLine();
+                double rating = double.Parse(Console.ReadLine());
+
+                if (rating > maxRating) 
+                { 
+                maxRating= rating;
+                    highestRatingForFilm = movieName;
+                }
+                if (rating < minRating) 
+                {
+                    minRating= rating;
+                    lowestRatingForFilm = movieName;
+                }
+                sumRating += rating;
+            }
+
+            averageRating = sumRating / movies;
+
+            Console.WriteLine($"{highestRatingForFilm} is with highest rating: {maxRating:f1}");
+            Console.WriteLine($"{lowestRatingForFilm} is with lowest rating: {minRating:f1}");
+            Console.WriteLine($"Average rating: {averageRating:f1}");
+
+        }
+
+    }
+}
