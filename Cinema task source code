@@ -1,0 +1,50 @@
+using System;
+
+namespace ConsoleApp63
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int hallCapacity = int.Parse(Console.ReadLine());
+            double price = 5;
+            double total = 0;
+            int seatsLeft = 0;
+            int people = 0;
+            double money = 0;
+
+            string input = Console.ReadLine();
+
+            while (input != "Movie time!") 
+            { 
+            int peopleEntering = int.Parse(input);
+                seatsLeft = hallCapacity - peopleEntering;
+                total = peopleEntering * price;
+
+                if (people+peopleEntering > hallCapacity)
+                {
+                    Console.WriteLine("The cinema is full.");
+                    Console.WriteLine($"Cinema income - {money} lv.");
+                    break;
+                }
+                
+                if (peopleEntering % 3 == 0)
+                {
+                    total = total - 5;
+                }
+
+                people += peopleEntering;
+                money += total;
+
+                input = Console.ReadLine();
+            }
+
+            if (input == "Movie time!")
+            {
+                Console.WriteLine($"There are {hallCapacity - people} seats left in the cinema.");
+                Console.WriteLine($"Cinema income - {money} lv.");
+            }
+            
+        }
+    }
+}
